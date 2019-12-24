@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
+
+
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -15,7 +17,6 @@ import javax.validation.constraints.*;
 @ApiModel(description = "A single link structure")
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-24T01:15:28.003+05:30")
-
 public class Link   {
   @JsonProperty("rel")
   private String rel = null;

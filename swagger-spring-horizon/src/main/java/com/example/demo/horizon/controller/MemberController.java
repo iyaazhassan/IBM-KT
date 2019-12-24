@@ -3,6 +3,7 @@ package com.example.demo.horizon.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.horizon.model.Member;
 import com.example.demo.horizon.service.MemberService;
+import com.example.demo.horizon.service.MemberServiceImpl;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class MemberController {
 	
 	@Autowired
-	private MemberService memberService;
+	private MemberServiceImpl memberService;
 	
 	@PostMapping("/create")
 	public Member createMember(@RequestBody Member m) {

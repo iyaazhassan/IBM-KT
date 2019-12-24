@@ -4,12 +4,14 @@ import java.util.Objects;
 import com.example.demo.horizon.model.Link;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.threeten.bp.LocalDate;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 import org.springframework.validation.annotation.Validated;
 
 
@@ -22,9 +24,8 @@ import javax.validation.constraints.*;
 @ApiModel(description = "A single member record")
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-24T01:15:28.003+05:30")
-@Document
-public class Member   {
 
+public class Member   {
 
   @JsonProperty("memberId")
   private String memberId = null;
@@ -59,6 +60,7 @@ public class Member   {
   @JsonProperty("horizonEmployeeIndicator")
   private Boolean horizonEmployeeIndicator = null;
 
+  @JsonIgnore
   @JsonProperty("links")
   @Valid
   private List<Link> links = null;
