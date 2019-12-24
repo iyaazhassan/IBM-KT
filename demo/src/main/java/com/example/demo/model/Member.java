@@ -46,7 +46,8 @@ public class Member   {
   private String suffix = null;
 
   @JsonProperty("dob")
-  private LocalDate dob = null;
+  //private LocalDate dob = null;
+  private String dob = null;
 
   @JsonProperty("gender")
   private String gender = null;
@@ -205,7 +206,8 @@ public class Member   {
     this.suffix = suffix;
   }
 
-  public Member dob(LocalDate dob) {
+  //changed Localedte here also
+  public Member dob(String dob) {
     this.dob = dob;
     return this;
   }
@@ -219,11 +221,13 @@ public class Member   {
 
   @Valid
 
-  public LocalDate getDob() {
+  //changed Localedte here also
+  public String getDob() {
     return dob;
   }
 
-  public void setDob(LocalDate dob) {
+  //changed Localedte here also
+  public void setDob(String dob) {
     this.dob = dob;
   }
 

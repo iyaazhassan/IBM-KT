@@ -48,9 +48,9 @@ public class JdbcMemberRepository implements MemberRepository {
 	public Member saveMember(Member m) {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO members " +
-				"(memberId,personId,prefix,firstName,middleName,lastName,suffix,dob,gender,ssn,horizonEmployeeIndicator) VALUES (?,?,?,?,?,?,?,?,?,?)" ;
+				"(memberId,personId,prefix,firstName,middleName,lastName,suffix,dob,gender,ssn,horizonEmployeeIndicator) VALUES (?,?,?,?,?,?,?,?,?,?,?)" ;
 		jdbcTemplate.update(sql, new Object[]{
-				m.getMemberId(),m.getPersonId(),m.getPrefix(),m.getFirstName(),m.getMiddleName(),m.getLastName(),m.getSuffix(),null,m.getGender(),m.getSsn(),true
+				m.getMemberId(),m.getPersonId(),m.getPrefix(),m.getFirstName(),m.getMiddleName(),m.getLastName(),m.getSuffix(),m.getDob(),m.getGender(),m.getSsn(),true
 		});
 		return m;
 	}
