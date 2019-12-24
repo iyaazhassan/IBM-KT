@@ -44,6 +44,8 @@ public class JdbcMemberRepository implements MemberRepository {
 	@Override
 	public void deleteMember(String memberId) {
 		// TODO Auto-generated method stub
+		String deleteQuery = "delete from member where memberId = ?";
+		jdbcTemplate.update(deleteQuery, memberId);
 
 	}
 

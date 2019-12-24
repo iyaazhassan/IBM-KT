@@ -31,4 +31,11 @@ public class MemberServiceImpl implements MemberService {
 		return memberRepository.getAllMembers();
 	}
 
+	@Override
+	public void deleteMember(String memberId) {
+		// TODO Auto-generated method stub
+		memberRepository.deleteMember(memberId);
+		
+	}
+
 }
