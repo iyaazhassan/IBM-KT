@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.example.demo.SwagSpringHorizonApplication;
+import com.example.demo.model.Member;
 
 
 
@@ -59,6 +61,32 @@ public class MemberControllerTest {
 				.andDo(print());
 	}
 	
+	@Test
+	public void verifyDelete() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.delete("/api/delete/m003").accept(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$.id").doesNotExist())
+				.andDo(print()).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void verifyUpdate() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/update").contentType(MediaType.APPLICATION_JSON).content(
+				"{\"memberId\" : \"m001\", \"personId\" : \"p001\" , \"prefix\" : \"Mr.\", \"firstName\" : \"Iyaaz\", \"middleName\" : \"Hassan\",\"lastName\" : \"Mohtisham\",\"suffix\" : \".\",\"dob\" : \"01-03-1997\",\"gender\" : \"Male\",\"ssn\" : \"s001\",\"horizonEmployeeIndicator\" : \"true\"}")
+				.accept(MediaType.APPLICATION_JSON)).andExpect(jsonPath("$.memberId").exists())
+				.andExpect(jsonPath("$.firstName").value("Iyaaz"))
+				.andExpect(jsonPath("$.middleName").value("Hassan"))
+				.andExpect(jsonPath("$.lastName").value("Mohtisham"))
+				.andDo(print());
+	}
+	
+	@Test
+    public void testToString()
+    {
+        Member m = new Member(); // you didn't supply the object, so I guessed
+        //String expected = "{class Member \nmemberId:null\npersonId:null\nprefix:null\nfirstName:null\nmiddleName:null\nlastName:null\nsuffix:null\ndob:null\ngender:null\nssn:null\nhorizonEmployeeIndicator:null\nlinks:null\n}"; // put the expected value here
+        String notexpected ="";
+        Assert.assertNotEquals(notexpected, m.toString());
+    }
 	
 
 //	@Test

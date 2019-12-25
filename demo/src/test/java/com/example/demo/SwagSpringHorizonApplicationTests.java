@@ -14,5 +14,10 @@ public class SwagSpringHorizonApplicationTests {
 	public void contextLoads() {
 	}
 	
+	@Test
+	public void applicationContextTest() {
+		SwagSpringHorizonApplication.main(new String[] {});
+	}
+	
 	
 }
