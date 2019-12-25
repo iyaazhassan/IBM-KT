@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-24T01:15:28.003+05:30")
-@AllArgsConstructor
+
 @NoArgsConstructor
 public class Member   {
 	

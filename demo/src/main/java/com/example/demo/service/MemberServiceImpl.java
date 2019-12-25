@@ -38,4 +38,9 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public Member updateMember(Member m) {
+		return memberRepository.updateMember(m);
+	}
+
 }

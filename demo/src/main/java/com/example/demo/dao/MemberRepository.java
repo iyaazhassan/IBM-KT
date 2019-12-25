@@ -11,6 +11,6 @@ public interface MemberRepository {
 	public List<Member> getAllMembers();
 	public Member saveMember(Member m);
 	public void deleteMember(String memberId);
-	public Member updateMember(String memberId);
+	public Member updateMember(Member m);
 
 }

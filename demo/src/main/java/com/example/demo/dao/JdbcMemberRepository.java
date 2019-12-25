@@ -50,9 +50,17 @@ public class JdbcMemberRepository implements MemberRepository {
 	}
 
 	@Override
-	public Member updateMember(String memberId) {
+	public Member updateMember(Member m) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		String query="update members set firstName='"+m.getFirstName()+"',middleName='"+m.getMiddleName()+"',lastName='"+m.getLastName()+"' where memberId='"+m.getMemberId()+"' ";  
+			    jdbcTemplate.update(query);  
+		
+//		         jdbcTemplate.update(
+//		                "update members set firstName= ?,middleName=?,lastName=?, where memberId =?",
+//		                m.getFirstName(),m.getMiddleName(),m.getLastName(),m.getMemberId());
+		         return m;
+		    
 	}
 
 }

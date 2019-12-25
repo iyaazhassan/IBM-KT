@@ -37,4 +37,10 @@ public class MemberController {
 	public void deleteMember(@PathVariable String memberId) {
 		memberService.deleteMember(memberId);
 	}
+	
+	@PostMapping("/update")
+	public Member updateMember(@RequestBody Member m) {
+		return memberService.updateMember(m);
+		
+	}
 }

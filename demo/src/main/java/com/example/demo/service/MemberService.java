@@ -12,5 +12,6 @@ public interface MemberService {
 	public Member createMember(Member m);
 	public List<Member> displayMember();
 	public void deleteMember(String memberId);
+	public Member updateMember(Member m);
 
 }
