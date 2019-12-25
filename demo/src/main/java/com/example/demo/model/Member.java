@@ -3,6 +3,10 @@ package com.example.demo.model;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.ArrayList;
@@ -21,10 +25,27 @@ import javax.validation.constraints.*;
 
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-12-24T01:15:28.003+05:30")
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Member   {
 	
-  @JsonProperty("memberId")
+  public Member(String memberId, String personId, String prefix, String firstName, String middleName, String lastName,
+			String suffix, String dob, String gender, String ssn, Boolean horizonEmployeeIndicator) {
+		super();
+		this.memberId = memberId;
+		this.personId = personId;
+		this.prefix = prefix;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.suffix = suffix;
+		this.dob = dob;
+		this.gender = gender;
+		this.ssn = ssn;
+		this.horizonEmployeeIndicator = horizonEmployeeIndicator;
+	}
+
+@JsonProperty("memberId")
   private String memberId = null;
 
   @JsonProperty("personId")
@@ -79,6 +100,10 @@ public class Member   {
     return memberId;
   }
 
+  public Boolean gethorizonEmployeeIndicator() {
+	    return horizonEmployeeIndicator;
+	  }
+  
   public void setMemberId(String memberId) {
     this.memberId = memberId;
   }

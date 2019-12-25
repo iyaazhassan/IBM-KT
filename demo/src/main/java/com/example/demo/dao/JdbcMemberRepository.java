@@ -21,7 +21,7 @@ public class JdbcMemberRepository implements MemberRepository {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public List<Member> getAllMembers() {
-		 String sql = "SELECT * FROM member";
+		 String sql = "SELECT * FROM members";
 
 	        List<Member> members = jdbcTemplate.query(
 	                sql,
@@ -33,7 +33,7 @@ public class JdbcMemberRepository implements MemberRepository {
 	@Override
 	public Member saveMember(Member m) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO member " +
+		String sql = "INSERT INTO members " +
 				"(memberId,personId,prefix,firstName,middleName,lastName,suffix,dob,gender,ssn,horizonEmployeeIndicator) VALUES (?,?,?,?,?,?,?,?,?,?,?)" ;
 		jdbcTemplate.update(sql, new Object[]{
 				m.getMemberId(),m.getPersonId(),m.getPrefix(),m.getFirstName(),m.getMiddleName(),m.getLastName(),m.getSuffix(),m.getDob(),m.getGender(),m.getSsn(),true
@@ -44,7 +44,7 @@ public class JdbcMemberRepository implements MemberRepository {
 	@Override
 	public void deleteMember(String memberId) {
 		// TODO Auto-generated method stub
-		String deleteQuery = "delete from member where memberId = ?";
+		String deleteQuery = "delete from members where memberId = ?";
 		jdbcTemplate.update(deleteQuery, memberId);
 
 	}

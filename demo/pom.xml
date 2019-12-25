@@ -75,7 +75,11 @@
     <artifactId>spring-batch-infrastructure</artifactId>
     <version>4.2.1.RELEASE</version>
 </dependency>
-		
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
