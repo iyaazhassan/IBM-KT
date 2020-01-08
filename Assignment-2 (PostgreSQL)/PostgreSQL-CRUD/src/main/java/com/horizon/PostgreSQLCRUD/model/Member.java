@@ -1,25 +1,22 @@
-package com.example.mongodbhorizon.model;
+package com.horizon.PostgreSQLCRUD.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+
+import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-
-import java.util.ArrayList;
-import java.util.List;
-import org.threeten.bp.LocalDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.validation.annotation.Validated;
-
-
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 
 /**
  * A single member record
@@ -30,11 +27,20 @@ import javax.validation.constraints.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Document
+@Entity
 public class Member   {
 	
 	 //private String uuid =UUID.randomUUID().toString();
 @Id
+private String uuid =UUID.randomUUID().toString();
+public String getUuid() {
+	return uuid;
+}
+
+public void setUuid(String uuid) {
+	this.uuid = uuid;
+}
+
 @JsonProperty("memberId")
   private String memberId = null;
 
@@ -68,10 +74,10 @@ public class Member   {
 
   @JsonProperty("horizonEmployeeIndicator")
   private Boolean horizonEmployeeIndicator = null;
-
-  @JsonProperty("links")
-  @Valid
-  private List<Link> links = null;
+//
+//  @JsonProperty("links")
+//  @Valid
+//  private List<Link> links = null;
 
   public Member memberId(String memberId) {
     this.memberId = memberId;
@@ -307,18 +313,18 @@ public class Member   {
     this.horizonEmployeeIndicator = horizonEmployeeIndicator;
   }
 
-  public Member links(List<Link> links) {
-    this.links = links;
-    return this;
-  }
-
-  public Member addLinksItem(Link linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<Link>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
+//  public Member links(List<Link> links) {
+//    this.links = links;
+//    return this;
+//  }
+//
+//  public Member addLinksItem(Link linksItem) {
+//    if (this.links == null) {
+//      this.links = new ArrayList<Link>();
+//    }
+//    this.links.add(linksItem);
+//    return this;
+//  }
 
   /**
    * Collection of links
@@ -328,13 +334,13 @@ public class Member   {
 
   @Valid
 
-  public List<Link> getLinks() {
-    return links;
-  }
-
-  public void setLinks(List<Link> links) {
-    this.links = links;
-  }
+//  public List<Link> getLinks() {
+//    return links;
+//  }
+//
+//  public void setLinks(List<Link> links) {
+//    this.links = links;
+//  }
 
 
   @Override
@@ -356,13 +362,14 @@ public class Member   {
         Objects.equals(this.dob, member.dob) &&
         Objects.equals(this.gender, member.gender) &&
         Objects.equals(this.ssn, member.ssn) &&
-        Objects.equals(this.horizonEmployeeIndicator, member.horizonEmployeeIndicator) &&
-        Objects.equals(this.links, member.links);
+        Objects.equals(this.horizonEmployeeIndicator, member.horizonEmployeeIndicator);
+        //Objects.equals(this.links, member.links);
   }
 
+  //deleted links last
   @Override
   public int hashCode() {
-    return Objects.hash(memberId, personId, prefix, firstName, middleName, lastName, suffix, dob, gender, ssn, horizonEmployeeIndicator, links);
+    return Objects.hash(memberId, personId, prefix, firstName, middleName, lastName, suffix, dob, gender, ssn, horizonEmployeeIndicator);
   }
 
   @Override
@@ -381,7 +388,7 @@ public class Member   {
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    ssn: ").append(toIndentedString(ssn)).append("\n");
     sb.append("    horizonEmployeeIndicator: ").append(toIndentedString(horizonEmployeeIndicator)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    //sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
   }
