@@ -1,4 +1,4 @@
-package com.example.mongodbhorizon.model;
+package com.example.CollectionScheduler.model;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
@@ -34,7 +34,7 @@ import javax.validation.constraints.*;
 public class Member   {
 	
 	 //private String uuid =UUID.randomUUID().toString();
-	
+	@Id
 	private String uuid =UUID.randomUUID().toString();
 	public String getUuid() {
 		return uuid;

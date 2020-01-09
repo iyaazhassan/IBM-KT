@@ -1,4 +1,5 @@
-package com.example.mongodbhorizon.model;
+package com.example.CollectionScheduler.model;
+
 
 import java.util.Objects;
 import java.util.UUID;
@@ -12,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.validation.annotation.Validated;
@@ -31,10 +32,10 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
-public class Member   {
+public class Member1   {
 	
 	 //private String uuid =UUID.randomUUID().toString();
-	
+	@Id
 	private String uuid =UUID.randomUUID().toString();
 	public String getUuid() {
 		return uuid;
@@ -81,7 +82,7 @@ public class Member   {
   @Valid
   private List<Link> links = null;
 
-  public Member memberId(String memberId) {
+  public Member1 memberId(String memberId) {
     this.memberId = memberId;
     return this;
   }
@@ -106,7 +107,7 @@ public class Member   {
     this.memberId = memberId;
   }
 
-  public Member personId(String personId) {
+  public Member1 personId(String personId) {
     this.personId = personId;
     return this;
   }
@@ -127,7 +128,7 @@ public class Member   {
     this.personId = personId;
   }
 
-  public Member prefix(String prefix) {
+  public Member1 prefix(String prefix) {
     this.prefix = prefix;
     return this;
   }
@@ -147,7 +148,7 @@ public class Member   {
     this.prefix = prefix;
   }
 
-  public Member firstName(String firstName) {
+  public Member1 firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -168,7 +169,7 @@ public class Member   {
     this.firstName = firstName;
   }
 
-  public Member middleName(String middleName) {
+  public Member1 middleName(String middleName) {
     this.middleName = middleName;
     return this;
   }
@@ -188,7 +189,7 @@ public class Member   {
     this.middleName = middleName;
   }
 
-  public Member lastName(String lastName) {
+  public Member1 lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -209,7 +210,7 @@ public class Member   {
     this.lastName = lastName;
   }
 
-  public Member suffix(String suffix) {
+  public Member1 suffix(String suffix) {
     this.suffix = suffix;
     return this;
   }
@@ -230,7 +231,7 @@ public class Member   {
   }
 
   //changed Localedte here also
-  public Member dob(String dob) {
+  public Member1 dob(String dob) {
     this.dob = dob;
     return this;
   }
@@ -254,7 +255,7 @@ public class Member   {
     this.dob = dob;
   }
 
-  public Member gender(String gender) {
+  public Member1 gender(String gender) {
     this.gender = gender;
     return this;
   }
@@ -275,7 +276,7 @@ public class Member   {
     this.gender = gender;
   }
 
-  public Member ssn(String ssn) {
+  public Member1 ssn(String ssn) {
     this.ssn = ssn;
     return this;
   }
@@ -295,7 +296,7 @@ public class Member   {
     this.ssn = ssn;
   }
 
-  public Member horizonEmployeeIndicator(Boolean horizonEmployeeIndicator) {
+  public Member1 horizonEmployeeIndicator(Boolean horizonEmployeeIndicator) {
     this.horizonEmployeeIndicator = horizonEmployeeIndicator;
     return this;
   }
@@ -315,12 +316,12 @@ public class Member   {
     this.horizonEmployeeIndicator = horizonEmployeeIndicator;
   }
 
-  public Member links(List<Link> links) {
+  public Member1 links(List<Link> links) {
     this.links = links;
     return this;
   }
 
-  public Member addLinksItem(Link linksItem) {
+  public Member1 addLinksItem(Link linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<Link>();
     }
@@ -353,7 +354,7 @@ public class Member   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Member member = (Member) o;
+    Member1 member = (Member1) o;
     return Objects.equals(this.memberId, member.memberId) &&
         Objects.equals(this.personId, member.personId) &&
         Objects.equals(this.prefix, member.prefix) &&
