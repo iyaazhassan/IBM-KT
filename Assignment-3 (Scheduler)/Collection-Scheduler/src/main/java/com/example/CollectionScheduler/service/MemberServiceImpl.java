@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
 			}
 			else {
 				System.out.println("Saved");
-				mongoTemplate.insert(randomMember,"Member1");
+				mongoTemplate.insert(randomMember,"member1");
 				//member1Repository.save(m);
 			}
 			
